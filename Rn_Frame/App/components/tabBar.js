@@ -1,11 +1,11 @@
 /*
- * @Author: wzx 
- * @Date: 2016-12-26 04:17:50 
+ * @Author: wzx
+ * @Date: 2016-12-26 04:17:50
  * @Last Modified by: wzx
- * @Last Modified time: 2016-12-26 04:20:39
+ * @Last Modified time: 2017-01-06 14:34:33
  */
 
-import React from 'react';
+import React, {Component}  from 'react';
 import {
   View,
   StyleSheet,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class TabBar extends React.Component {
+class TabBar extends Component {
 
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ class TabBar extends React.Component {
       console.warn('ScrollableTabView TabBar config error, please check');
     }
   }
-  
+
   render() {
     const {
       tabBarResources,
@@ -49,22 +49,24 @@ class TabBar extends React.Component {
       tabs,
       goToPage
     } = this.props;
+
     return (
       <View style={styles.container}>
         {
           tabs.map((tab, index) => {
             return (
-              <TouchableOpacity style={styles.touchableContainer} key={index} onPress={() => {goToPage(index)}} activeOpacity={1}>
+              <TouchableOpacity
+                  style={styles.touchableContainer}
+                  key={index}
+                  onPress={() => {goToPage(index)}}
+                  activeOpacity={1}>
                 <Image style={styles.image} source={tabBarResources[index][activeTab === index ? 1 : 0]}/>
               </TouchableOpacity>
-              
             );
           })
         }
       </View>
-    );
-  }
-
+  );}
 };
 
 TabBar.propTypes = {
@@ -74,5 +76,3 @@ TabBar.propTypes = {
 };
 
 export default TabBar;
-
-

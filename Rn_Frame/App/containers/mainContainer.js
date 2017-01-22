@@ -9,7 +9,8 @@ import {
   StyleSheet
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import MovieContainer from './readingContainer';
+import ReadingContainer from './readingContainer';
+import HomeContainer from './homeContainer';
 import TabBar from '../components/tabBar';
 
 const styles = StyleSheet.create({
@@ -47,6 +48,7 @@ class MainContainer extends React.Component {
           return <TabBar tabBarResources={TAB_BAR_RESOURCES}/>
         }}>
         <ReadingContainer style={styles.subView}/>
+        <HomeContainer style={styles.subView}/>
       </ScrollableTabView>
     );
   }

@@ -2,7 +2,7 @@
  * @Author: wzx 
  * @Date: 2016-12-22 01:22:50 
  * @Last Modified by: wzx
- * @Last Modified time: 2016-12-24 01:32:28
+ * @Last Modified time: 2017-01-06 15:24:07
  */
 
 import * as types from '../constants/ActionType';
@@ -17,9 +17,9 @@ const initialState = {
 }
 
 export default function login(state = initialState, action) {
-    state = Object.assign({}, state, {
-        logined: false,
-    });
+    // state = Object.assign({}, state, {
+    //     logined: false,
+    // });
     switch (action.type) {
         case types.FETCH_LOGIN_RESULT:
             return Object.assign({}, state, {

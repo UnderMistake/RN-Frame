@@ -1,12 +1,12 @@
 /*
- * @Author: wzx 
- * @Date: 2016-12-26 05:25:37 
+ * @Author: wzx
+ * @Date: 2016-12-26 05:25:37
  * @Last Modified by: wzx
  * @Last Modified time: 2016-12-26 06:41:09
  */
 
 
-import React from 'react';
+import React, {Component}  from 'react';
 import ReactNative from 'react-native';
 
 const {
@@ -29,7 +29,7 @@ var _navigator, _route;
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.renderScene = this.renderScene.bind(this);

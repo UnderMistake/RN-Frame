@@ -2,7 +2,7 @@
  * @Author: wzx 
  * @Date: 2016-12-23 02:53:48 
  * @Last Modified by: wzx
- * @Last Modified time: 2016-12-26 07:21:11
+ * @Last Modified time: 2017-01-06 15:32:39
  */
 'use strict';
 
@@ -33,10 +33,10 @@ export default class Login extends Component {
   componentWillReceiveProps(nextProps) {
     const {login} = nextProps;
     if(login.logined){
-      nextProps.dispatch(stopHandleTimeConsuming());
+      //nextProps.dispatch(stopHandleTimeConsuming());
       if(!login.rawData) {
         Alert.alert('', '网络请求失败，请稍后再试！', [{text: '好'},]);
-      } else if (login.rawData.code == 'success') {
+      } else if (login.logined) {
           global.storage.save({
              key: 'userName',  //注意:请不要在key中使用_下划线符号!
              rawData: {
@@ -50,7 +50,7 @@ export default class Login extends Component {
             component: MainContainer,
           });
         
-      } else if (login.rawData.code == 'failure') {
+      } else if (!login.logined) {
         Alert.alert('', login.rawData.msg, [{text: '好'},]);
       }
     }
@@ -109,7 +109,7 @@ export default class Login extends Component {
   onLogin() {
     const {dispatch, login} = this.props;
     dispatch(fetchLogin(login.username, login.password));
-    dispatch(startHandleTimeConsuming());
+    //dispatch(startHandleTimeConsuming());
   }
 }
 
